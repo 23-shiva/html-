@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="passs"></div>
+    <script>
+        function ppassword(number, lowercase, uppercase, specialChar, passlength) {
+            const innumber = "1234567890";
+            const inlowercase = "abcdefghijklmnopqrstuvwxyz";
+            const inuppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const inspecialChar = "!@#$%^&*()-+";
+             let allopass = "";
+            let password = "";
+            allopass += lowercase ? inlowercase : "";
+            allopass += uppercase ? inuppercase : "";
+            allopass += number ? innumber : "";
+            allopass += specialChar ? inspecialChar : "";
+            for (let i = 0; i < passlength; i++) {
+                const randomIndex = Math.floor(Math.random() * allopass.length);
+                password += allopass[randomIndex];
+            }
+            return password;
+        }
+        const number = true;
+        const lowerCase = true;
+        const upperCase = true;
+        const specialChar = true;
+        const passlength = 12;
+
+        const pass = ppassword(number, lowerCase, upperCase, specialChar, passlength);
+document.getElementById("passs").innerHTML = 'genrated password is: ' + pass;
+</script>
+</body>
+
+</html>
